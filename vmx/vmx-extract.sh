@@ -5,7 +5,7 @@ IMAGE=$1
 echo "Extracting Juniper vMX tgz"
 rm -rf tmp docker/vmx
 mkdir -p tmp docker/vmx
-tar -zxvf ${IMAGE} -C tmp/ --wildcards vmx*/images/*img --wildcards vmx*/images/*qcow2
+tar -zxvf ${IMAGE} -C tmp/ vmx*/images/*img vmx*/images/*qcow2
 mv -v tmp/vmx*/images/vmxhdd.img docker/vmx/
 mv -v tmp/vmx*/images/junos-vmx*qcow2 docker/vmx/		# 16.1 and newer
 mv -v tmp/vmx*/images/jinstall64-vmx*img docker/vmx/
